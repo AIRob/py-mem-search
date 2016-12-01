@@ -16,7 +16,7 @@ python search.py
 1. 安装Flask (pip install Flask)
 2. python api.py
 3. 浏览器打开网页 http://localhost:8282/search.html
-
+![示意图](https://raw.githubusercontent.com/zhangyoushu/py-mem-search/master/result.png)
 
 
 文档集合
