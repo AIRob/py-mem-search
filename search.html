@@ -1,0 +1,98 @@
+<!doctype html>
+<html ng-app="app">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>搜索</title>    
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="ctrl">
+  <div class="container">
+      <br>
+      <br>
+      <form class="form-inline">
+
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="query" placeholder="请输入查询词" ng-change="search()"/>
+        </div>
+        <button class="btn btn-small btn-success" ng-click="search()" role="button">搜索</button>
+      </form>
+
+      <br>
+      <br>共有{{ list.length }}条结果
+
+        <p ng-repeat="w in list track by $index" ng-bind-html="w">{{w}}
+        </p>
+      </ul>
+</div>
+
+
+
+</div>
+
+<script src="http://cdn.bootcss.com/angular.js/1.4.7/angular.min.js"></script>    
+
+<script type="text/javascript">
+app = angular.module('app',[])
+
+.controller('ctrl', function($http,$scope,$sce){
+
+
+  url = "http://localhost:8282"
+
+  $scope.query = ''
+  $scope.list = []
+
+  
+  function keywordRed(){
+    var new_list = []
+    for(i=0;i<$scope.list.length;i++){
+      var row = $scope.list[i]
+      var new_row = ''
+      for(j=0;j<row.length;j++){
+        if($scope.query.indexOf(row[j])!=-1){
+          new_row += '<em><font color="red">' + row[j] + '</font></em>'
+        }else{
+          new_row += row[j]
+        }
+      }
+      new_list.push($sce.trustAsHtml(new_row))
+    }
+    $scope.list = new_list
+
+  }
+
+  function parseRes(data){
+        var max=10
+        var list=[]
+        for(i=0;i<max;i++){
+            if(i<data.length){
+              list.push(data[i])
+            }
+        }
+        $scope.list = list
+
+         keywordRed()
+  }
+
+  $scope.search = function(){
+
+    $scope.list = []
+
+    if($scope.query.length>1){
+      $http.get(url+'/q/'+$scope.query).then(function(response){
+        parseRes(response.data)
+      })
+    }
+  }
+
+
+})
+</script>
+
+</body>
+</html>

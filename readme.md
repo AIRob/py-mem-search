@@ -13,8 +13,8 @@ python search.py
 
 网页
 -------
-1. 安装Flask
-2. sh server.sh
+1. 安装Flask (pip install Flask)
+2. python api.py
 3. 浏览器打开网页 http://localhost:8282/search.html
 
 
@@ -39,11 +39,13 @@ python search.py
 运行步骤
 -------
 一、启动 
+
 1. 读入所有文档docs.txt，生成 list<Doc>，动态生成分词字典
 2. 对文档分词，建倒排索引。 
 
 
 二、搜索 
+
 1. 输入查询q
 2. 分词。对q分词，得到term list。
 3. 检索。根据每个term，从倒排索引中取出候选doc。合并得到doc list。
