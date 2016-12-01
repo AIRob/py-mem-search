@@ -19,6 +19,7 @@ class Searcher:
 		self.index = index;
 
 	def search(self,query):
+		query = query.replace(' ','')
 		answer_list=[]
 		answer = []
 
