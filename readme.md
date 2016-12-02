@@ -1,7 +1,7 @@
 
 一个基于内存的搜索引擎
 
-运行环境
+运行环境 [小白安装教程](install.md)
 -------
 - python 2.7 
 - pip install jieba 
