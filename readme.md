@@ -4,10 +4,10 @@
 运行环境 
 -------
 - python 2.7 
-- pip install jieba 
+- pip install jieba  
 *[小白安装说明](install.md)*
 
-
+ 
 命令行
 ---------
 python search.py
