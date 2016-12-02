@@ -8,23 +8,21 @@
 *[小白安装说明](install.md)*
 
  
-命令行
+命令行运行
 ---------
 python search.py
 
 
-网页
+网页运行
 -------
-1. 安装Flask (pip install Flask)
-2. python api.py
-3. 浏览器打开网页 http://localhost:8282/
-
-#### 网页界面 
+1. 安装Flask：`pip install Flask`
+2. 启动服务：`python api.py`
+3. 浏览器打开网页`http://localhost:8282/`，界面如下  
 ![示意图](result.png)
 
 
 
-文档集合
+自定义搜索内容
 ----------
 - docs.txt 中包含所有待检索文档
 - 每一行代表一个文档
@@ -41,15 +39,15 @@ python search.py
 - 点击排序/Learning to Rank: LambdaMart(todo)
 
 
-运行步骤
+程序主要步骤说明
 -------
-一、启动 
+一、启动（实时建索引）
 
 1. 读入所有文档docs.txt，生成 list<Doc>，动态生成分词字典
 2. 对文档分词，建倒排索引。 
 
 
-二、搜索 
+二、搜索（检索步骤）
 
 1. 输入查询q
 2. 分词。对q分词，得到term list。
