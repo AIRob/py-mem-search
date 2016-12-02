@@ -41,13 +41,15 @@ python search.py
 
 程序主要步骤说明
 -------
-一、启动（实时建索引）
+核心代码在index.py，search.py，不到100行。
+
+一、启动（实时建索引，index.py）
 
 1. 读入所有文档docs.txt，生成 list<Doc>，动态生成分词字典
 2. 对文档分词，建倒排索引。 
 
 
-二、搜索（检索步骤）
+二、搜索（检索步骤，search.py）
 
 1. 输入查询q
 2. 分词。对q分词，得到term list。
