@@ -1,10 +1,11 @@
 
 一个基于内存的搜索引擎
 
-运行环境 [小白安装教程](install.md)
+运行环境 
 -------
 - python 2.7 
 - pip install jieba 
+*[小白安装说明](install.md)*
 
 
 命令行
@@ -19,7 +20,7 @@ python search.py
 3. 浏览器打开网页 http://localhost:8282/
 
 #### 网页界面 
-![示意图](https://raw.githubusercontent.com/zhangyoushu/py-mem-search/master/result.png)
+![示意图](result.png)
 
 
 
